@@ -1,0 +1,8 @@
+/target
+*.bin
+*.onnx
+*.pt
+*.gguf
+*.ggml
+/models
+/.direnv

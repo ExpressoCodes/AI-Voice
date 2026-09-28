@@ -1,0 +1,38 @@
+[package]
+name = "kokorox"
+version = "0.1.5"
+edition = "2021"
+homepage = "https://github.com/WismutHansen/kokorox"
+resolver = "2"
+authors = ["Lucas Jin", "Tommy Falkowski"]
+description = "Lightning fast text-to-speech with the Kokoro model in rust"
+license = "Apache-2.0"
+
+[dependencies]
+espeak-rs = "0.1.9"
+hound = "3.5.1"
+indicatif = "0.17.9"
+ndarray = "0.16.1"
+lazy_static = "1.5.0"
+regex = "1.9.5"
+reqwest = { version = "0.12.12" }
+serde_json = "1.0.135"
+tokio = { version = "1.0", features = ["fs", "io-util"] }
+ndarray-npy = "0.9.1"
+whatlang = "0.16.4"
+jpreprocess = { version = "0.12.0", features = ["naist-jdic"] }
+
+mp3lame-encoder = "0.2.1"
+parking_lot = "0.12"
+hf-hub = { version = "0.3", features = ["tokio"] }
+dirs = "5.0"
+zip = { version = "2.4", default-features = false, features = ["deflate"] }
+
+# Base ONNX Runtime configuration
+ort = { version = "2.0.0-rc.10", default-features = true }
+
+[features]
+default = ["cpu"]
+cpu = []
+cuda = ["ort/cuda"]
+coreml = ["ort/coreml"]
